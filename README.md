@@ -13,6 +13,6 @@ It can be used with both Fetch API and Axios.
 
 React Query introduces a lot of new concepts, but there are two that are the most important:
 
-- **Queries:** Used to fetch data from a server or API (GET)
-- **Mutations:** Used to create/update/delete data on the server (POST, PUT, PATCH, DELETE)
+- **Queries (useQuery):** Used to fetch data from a server or API (GET)
+- **Mutations (useMutation):** Used to create/update/delete data on the server (POST, PUT, PATCH, DELETE)
 
