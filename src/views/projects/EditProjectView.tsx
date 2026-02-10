@@ -4,9 +4,8 @@ import { getProjectsById } from "@/api/ProjectAPI";
 import EditProjectForm from "@/components/projects/EditProjectForm";
 
 export default function EditProjectView() {
-   const params = useParams()
-   const projectId = params.projectId!
-   
+    const params = useParams()
+    const projectId = params.projectId!
     const { data, isLoading, error, isError } = useQuery({
         queryKey: ["editProject", projectId], // Added projectId to queryKey for uniqueness
         queryFn: () => getProjectsById(projectId),
