@@ -4,15 +4,17 @@ import { de } from 'zod/v4/locales'
 /** Tasks */
 export const taskStatusSchema = z.enum(["pending", "onHold", "inProgress", "underReview", "completed"])
 
-export const taskschema = z.object({
+export const taskSchema = z.object({
     _id: z.string(),
     name: z.string(),
     description: z.string(),
     project: z.string(),
-    status: taskStatusSchema
+    status: taskStatusSchema,
+    createdAt: z.string(),
+    updatedAt: z.string()
 })
 
-export type Task = z.infer<typeof taskschema>
+export type Task = z.infer<typeof taskSchema>
 export type TaskFormData = Pick<Task, 'name' | 'description'>
 
 /** Projects */
