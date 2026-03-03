@@ -22,7 +22,7 @@ export default function TaskCard({ task }: TaskCardProps) {
         mutationFn: deleteTask,
         onError: (error) => { toast.error(error.message)},
         onSuccess: (data) => {
-            queryClient.invalidateQueries({queryKey: ['editProject', projectId]})
+            queryClient.invalidateQueries({queryKey: ['project', projectId]})
             toast.success(data)
         }
     })
