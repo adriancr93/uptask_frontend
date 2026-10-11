@@ -1,4 +1,5 @@
-import { Fragment } from 'react';
+import React, { Fragment } from 'react'
+import NotesPanel from '../notes/NotesPanel'
 import { Dialog, Transition } from '@headlessui/react';
 import { Navigate, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
@@ -87,13 +88,18 @@ export default function TaskModalDetails() {
                                     </Dialog.Title>
                                     <p className='text-lg text-slate-500 mb-2'>Description: {data.description}</p>
 
-                                    <p className='text-2xl text-slate-500 mb-2'>Logs</p>
+                                    { data.completedBy.length ? (
+                                        <>
+                                        <p className='text-2xl text-slate-500 mb-2'>Logs</p>
 
-                                    <ul className='list-decimal'>
-                                    {data.completedBy.map( (activityLog) => (
-                                        <li key={activityLog._id}> <span className='font-bold text-slate-600'>{activityLog.status}</span>{' '} by: {activityLog.user.name}</li>
-                                    ))}
-                                    </ul>
+                                        <ul className='list-decimal'>
+                                        {data.completedBy.map( (activityLog) => (
+                                            <li key={activityLog._id}> <span className='font-bold text-slate-600'>{activityLog.status}</span>{' '} by: {activityLog.user.name}</li>
+                                        ))}
+                                        </ul>
+                                        </>
+                                    ): null}
+
                                     <div className='my-5 space-y-3'>
                                         <label className='font-bold'>Current Status:</label>
                                          <select className='w-full p-3 bg-white border border-gray-300' defaultValue={data.status} onChange={handleChange}>
@@ -102,6 +108,7 @@ export default function TaskModalDetails() {
                                             ))}
                                          </select>
                                     </div>
+                                    <NotesPanel />
                                 </Dialog.Panel>
                             </Transition.Child>
                         </div>
