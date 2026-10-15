@@ -6,9 +6,8 @@
     "module": "ESNext",
     "types": ["node"],
     "skipLibCheck": true,
-    "baseUrl": "src",
     "paths": {
-      "@/components/*": ["components/*"]
+      "@/components/*": ["./src/components/*"]
     },
 
     /* Bundler mode */
