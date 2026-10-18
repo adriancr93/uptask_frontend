@@ -6,7 +6,7 @@ import EditProjectForm from "@/components/projects/EditProjectForm";
 export default function EditProjectView() {
     const params = useParams()
     const projectId = params.projectId!
-    const { data, isLoading, error, isError } = useQuery({
+    const { data, isLoading, isError } = useQuery({
         queryKey: ["project", projectId], // Added projectId to queryKey for uniqueness
         queryFn: () => getProjectsById(projectId),
         retry: false

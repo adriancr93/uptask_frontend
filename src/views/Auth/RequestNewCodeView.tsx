@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useMutation } from '@tanstack/react-query'
+import { useMutation } from '@tanstack/react-query';
 import type { RequestConfirmationCodeForm } from "../../types";
 import ErrorMessage from "@/components/ErrorMessage";
 import { requestConfirmationCode } from "@/api/AuthAPI";
@@ -11,7 +11,7 @@ export default function RegisterView() {
         email: ''
     }
 
-    const { register, handleSubmit, reset, formState: { errors } } = useForm({ defaultValues: initialValues });
+    const { register, handleSubmit, formState: { errors } } = useForm({ defaultValues: initialValues });
 
     const { mutate } = useMutation({
         mutationFn: requestConfirmationCode,
